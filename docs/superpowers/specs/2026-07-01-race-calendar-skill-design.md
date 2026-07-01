@@ -30,15 +30,14 @@ Explicitly deferred. Documented here so v2 knows where to pick up:
 
 ## Architecture
 
-Three skills, each with one purpose, communicating through files in the `running` repo. No shared code, no runtime state — everything is on disk.
+Three skills, each with one purpose, communicating through files in the `running` repo. No shared code, no runtime state — everything is on disk. Skills live inside the repo at `.claude/skills/` so they're version-controlled alongside the data and plans they operate on.
 
 ```
-~/.claude/skills/
-├── race-scrape/     — fetches races from 3 Czech sites, normalizes, writes data/races/*.json
-├── race-plan/       — interactive planning: goal race + build-ups + tapering rules; writes plans/*.md
-└── race-render/     — takes a plan file, produces markdown views or self-contained HTML
-
 /running/  (this repo)
+├── .claude/skills/
+│   ├── race-scrape/     — fetches races from Czech sites, normalizes, writes data/races/*.json
+│   ├── race-plan/       — interactive planning: goal race + build-ups + tapering rules; writes plans/*.md
+│   └── race-render/     — takes a plan file, produces markdown views or self-contained HTML
 ├── data/races/
 │   ├── ceskybeh-2026.json
 │   ├── top4running-2026.json
@@ -115,7 +114,7 @@ Written by `race-scrape`, consumed by `race-plan`. One JSON file per source.
 **Skill directory:**
 
 ```
-~/.claude/skills/race-scrape/
+.claude/skills/race-scrape/
 ├── SKILL.md
 └── references/
     ├── source-notes.md        # per-site quirks: date formats, expected structure
@@ -224,7 +223,7 @@ Free-form notes: training thoughts, why each race was picked, etc.
 ### Skill directory
 
 ```
-~/.claude/skills/race-plan/
+.claude/skills/race-plan/
 ├── SKILL.md
 └── references/
     ├── build-up-heuristics.md   # per-goal-type build-up patterns and spacing rules
@@ -303,7 +302,7 @@ Vanilla HTML/CSS/JS, no build step. Written to `renders/<plan-slug>.html`.
 ### Skill directory
 
 ```
-~/.claude/skills/race-render/
+.claude/skills/race-render/
 ├── SKILL.md
 └── references/
     ├── markdown-view-a.md       # detailed timeline format

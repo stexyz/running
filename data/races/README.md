@@ -8,12 +8,21 @@ Files are refreshed by `race-scrape` when `fetched_at` is older than 7 days.
 
 ## File naming
 
-`<source-id>-<year>.json` — e.g., `ceskybeh-2026.json`, `top4running-2026.json`.
+`<source-id>-<year>.json` — per-source raw data (e.g., `ceskybeh-2026.json`, `top4running-2026.json`).
+`all-<year>.json` — consolidated cross-source deduped view.
 
-Source IDs (v1):
+Source IDs:
+- `behej` — JSON API, https://www.behej.com/terminovka
 - `ceskybeh` — https://ceskybeh.cz/terminovka/
-- `top4running` — https://top4running.cz/pg/kalendar-bezeckych-zavodu
 - `svetbehu` — https://www.svetbehu.cz/terminovka/
+- `bezeckyzavod` — https://www.bezeckyzavod.cz/zavody/
+- `sportbase` — https://www.sport-base.cz/kalendar/2026.htm
+- `top4running` — https://top4running.cz/pg/kalendar-bezeckych-zavodu
+- `runczech` — https://www.runczech.com/cs/akce (series operator)
+- `runtour` — https://www.run-tour.cz/ (series operator)
+- `behejlesy` — https://behejlesy.cz/ (series operator)
+
+**Downstream skills (race-plan, race-render) should read `all-<year>.json`** unless they need source-specific fidelity.
 
 ## Schema
 
@@ -46,6 +55,16 @@ Source IDs (v1):
 - `type` enum: `road-marathon`, `road-half`, `road-10k`, `road-5k`, `trail`, `ultra`, `vertical`, `duathlon`, `night-race`, `other`.
 - `url`: canonical page for the race.
 
+## Consolidated schema (`all-<year>.json`)
+
+Same as above, except:
+- `id`, `name`, `date`, `distance_km` are taken from the "most descriptive" contributor (longest name).
+- `location` fields are picked independently as the first non-null value across contributors.
+- `type` prefers any non-`other` classification.
+- Adds a `sources` array (length ≥ 1) with per-contributor `{source, url, name}`. Singletons carry a one-element array so consumers can treat all records uniformly.
+
+Deduplication rule: two entries merge when `date` matches, `distance_km` matches within ±0.5 km after rounding to 0.1, and normalized `city` (unaccented / lowercased) matches exactly. Entries with `city: null` never merge.
+
 ## Future sources (v2)
 
-See `~/.claude/skills/race-scrape/references/foreign-sources.md` for researched candidates in DE / AT / SK / PL.
+See `.claude/skills/race-scrape/references/foreign-sources.md` for researched candidates in DE / AT / SK / PL.

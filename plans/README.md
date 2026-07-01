@@ -12,7 +12,7 @@ Completed plans move to `archive/`.
 
 YAML frontmatter (machine-read by skills) + free-form markdown notes.
 
-See the plan schema: `~/.claude/skills/race-plan/references/plan-schema.md`.
+See the plan schema: `.claude/skills/race-plan/references/plan-schema.md`.
 
 Minimal example:
 
