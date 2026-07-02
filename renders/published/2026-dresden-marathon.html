@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dresden Marathon — Race Plan</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      color: #222;
+      background: #fafafa;
+    }
+    header {
+      border-bottom: 2px solid #333;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header .meta {
+      color: #666;
+      margin-top: 0.25rem;
+      font-size: 1rem;
+    }
+    header .countdown {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #b53a3a;
+      margin-top: 0.5rem;
+    }
+    section { margin-bottom: 2.5rem; }
+    section h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.25rem;
+    }
+    .timeline-strip {
+      position: relative;
+      height: 60px;
+      background: #eee;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    .timeline-strip .taper {
+      position: absolute;
+      top: 0; bottom: 0;
+      background: rgba(255, 200, 200, 0.5);
+    }
+    .timeline-strip .marker {
+      position: absolute;
+      top: 8px;
+      height: 44px;
+      width: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .timeline-strip .marker.A { background: #d64545; }
+    .timeline-strip .marker.B { background: #e08a3c; }
+    .timeline-strip .marker.C { background: #888; }
+    .timeline-strip .marker:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .month {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 0.75rem;
+    }
+    .month h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .month table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    .month th, .month td { text-align: center; padding: 0.2rem; }
+    .month th { color: #888; font-weight: 500; }
+    .month td.race { border-radius: 3px; font-weight: 600; color: #fff; }
+    .month td.race.A { background: #d64545; }
+    .month td.race.B { background: #e08a3c; }
+    .month td.race.C { background: #888; }
+    .month td.taper { background: rgba(255, 200, 200, 0.4); }
+    table.race-list {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    table.race-list th, table.race-list td {
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    table.race-list th { background: #f0f0f0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: #666; }
+    table.race-list tr:last-child td { border-bottom: none; }
+    .warnings {
+      background: #fff5e5;
+      border-left: 4px solid #e08a3c;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+    }
+    .warnings h2 { margin-top: 0; color: #b06d20; border: none; text-transform: none; letter-spacing: normal; font-size: 1rem; }
+    .warnings ul { margin: 0; padding-left: 1.2rem; }
+    footer {
+      color: #999;
+      font-size: 0.85rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dresden Marathon</h1>
+    <div class="meta">Sunday, October 25, 2026 · Dresden, DE · Marathon</div>
+    <div class="countdown">115 days to go</div>
+  </header>
+
+  
+
+  <section>
+    <h2>Timeline</h2>
+    <div class="timeline-strip">
+      <div class="taper" style="left: 80.2%; width: 19.8%"></div>
+      <div class="marker C" style="left: 0.0%" data-tooltip="Běhej lesy #4 Klínovec - ČSOB 23 km — Jul 11"></div>
+      <div class="marker C" style="left: 46.2%" data-tooltip="Mizuno Neon Run Praha — Aug 29"></div>
+      <div class="marker B" style="left: 52.8%" data-tooltip="Birell Večerní Běh na 10 km Praha — Sep 05"></div>
+      <div class="marker B" style="left: 67.0%" data-tooltip="ŠKODA FIT půlmaraton 2026 — Sep 20"></div>
+      <div class="marker A" style="left: 100.0%" data-tooltip="Dresden Marathon — Oct 25"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Months</h2>
+    <div class="month-grid">
+      <div class="month"><h3>July 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="race C" title="Běhej lesy #4 Klínovec - ČSOB 23 km">11</td><td>12</td></tr><tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr><tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr><tr><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td></tr></table></div>
+      <div class="month"><h3>August 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr><tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr><tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td class="race C" title="Mizuno Neon Run Praha">29</td><td>30</td></tr><tr><td>31</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
+      <div class="month"><h3>September 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td class="race B" title="Birell Večerní Běh na 10 km Praha">5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr><tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td class="race B" title="ŠKODA FIT půlmaraton 2026">20</td></tr><tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr><tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr></table></div>
+      <div class="month"><h3>October 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td class="taper">4</td></tr><tr><td class="taper">5</td><td class="taper">6</td><td class="taper">7</td><td class="taper">8</td><td class="taper">9</td><td class="taper">10</td><td class="taper">11</td></tr><tr><td class="taper">12</td><td class="taper">13</td><td class="taper">14</td><td class="taper">15</td><td class="taper">16</td><td class="taper">17</td><td class="taper">18</td></tr><tr><td class="taper">19</td><td class="taper">20</td><td class="taper">21</td><td class="taper">22</td><td class="taper">23</td><td class="taper">24</td><td class="race A" title="Dresden Marathon">25</td></tr><tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td></tr></table></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>All races</h2>
+    <table class="race-list">
+      <thead>
+        <tr><th>Date</th><th>Priority</th><th>Name</th><th>Type</th><th>Location</th><th>Role</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2026-07-11</td><td>C</td><td>Běhej lesy #4 Klínovec - ČSOB 23 km</td><td>Trail</td><td>Loučná pod Klínovcem</td><td>Long trail day, terrain exposure</td></tr>
+        <tr><td>2026-08-29</td><td>C</td><td>Mizuno Neon Run Praha</td><td>5k</td><td>Praha</td><td>Late-summer sharpener</td></tr>
+        <tr><td>2026-09-05</td><td>B</td><td>Birell Večerní Běh na 10 km Praha</td><td>Night 10k</td><td>Praha 1</td><td>10k threshold, calibrate fitness</td></tr>
+        <tr><td>2026-09-20</td><td>B</td><td>ŠKODA FIT půlmaraton 2026</td><td>HM</td><td>Plzeň</td><td>Main pacing rehearsal (5 wks out)</td></tr>
+        <tr><td>2026-10-25</td><td>A</td><td>Dresden Marathon ★</td><td>Marathon</td><td>Dresden, DE</td><td>★ Goal</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>Generated by race-render on 2026-07-02 10:00</footer>
+</body>
+</html>
