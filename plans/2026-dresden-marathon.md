@@ -13,14 +13,13 @@ build_ups:
     priority: C
     role: Long trail day, terrain exposure. Verify elevation ≤2000m before signup.
     source: behej-2026-07-11-behej-lesy-4-klinovec-csob-23-km
-  - name: Half Marathon Praha 13
-    date: 2026-08-28
-    location: Praha 13, CZ
-    type: road-half
-    priority: B
-    role: Early-season HM pacing check, 8 weeks out. Replaces Aug 29 Neon Run 5k.
-    source: behej-2026-08-28-half-marathon-praha-13
-    warning: 8 days before Sep 5 Birell 10k (B) — violates 14-day A/B spacing rule. Accepted by user.
+  - name: Borovská desítka
+    date: 2026-07-25
+    location: Havlíčkova Borová, CZ
+    type: road-10k
+    priority: C
+    role: Aerobic sharpener 14 weeks out, 2 weeks after Klínovec. Bridges the Jul→Sep gap; run at controlled effort (marathon-pace to threshold), not race pace.
+    source: svetbehu-2026-07-25-borovska-desitka
   - name: Birell Večerní Běh na 10 km Praha
     date: 2026-09-05
     location: Praha 1, CZ
@@ -28,7 +27,6 @@ build_ups:
     priority: B
     role: 10k threshold, calibrate current fitness ~7 weeks out.
     source: ceskybeh-2026-09-05-birell-vecerni-beh-na-10-km-praha
-    warning: 8 days after Aug 28 Praha 13 HM (B) — violates 14-day A/B spacing rule. Accepted by user.
   - name: ŠKODA FIT půlmaraton 2026
     date: 2026-09-20
     location: Plzeň, CZ
@@ -47,6 +45,7 @@ constraints:
     - 2026-08-16
     - 2026-08-22
     - 2026-08-23
+    - 2026-08-28
     - 2026-08-29
   notes: |
     Prefer CZ races within 2h of Prague. Goal race Dresden is DE but within 2h.
@@ -57,22 +56,31 @@ training_phase_by_week: {}
 
 # Plan notes
 
-Iteration 2 — added a second HM at user's request.
+Iteration 4 — full replan against updated blackouts. Added a Jul 25
+C-race sharpener (Borovská desítka 10k) to bridge the 8-week Klínovec →
+Birell gap. Aug is a full dead zone: all four weekends are personal
+blackouts (Aug 1–2 soft, 8–9, 15–16, 22–23, 28–29).
 
 ## Structure
 
 - **Jul 11 Klínovec 23km trail (C):** long trail day, terrain rehearsal, early-season fitness marker.
-- **Aug 1–23:** family/travel commitments, no racing.
-- **Aug 28 Praha 13 HM (B):** early-season HM pacing check, 8 weeks out. Friday evening event.
-- **Sep 5 Birell 10k evening (B):** RunCzech event, flat central Prague course. Threshold calibration.
+- **Jul 25 Borovská desítka 10k (C):** aerobic sharpener 14 wks out, controlled effort. 2 weeks after Klínovec.
+- **Aug:** dead zone (family/travel commitments across every weekend).
+- **Sep 5 Birell 10k evening (B):** first hard race back, threshold calibration. RunCzech event, flat central Prague course.
 - **Sep 20 Plzeň HM (B):** main marathon-pace rehearsal, 5 weeks out.
 - **Oct 4–24:** 3-week A-race taper. No hard races.
 - **Oct 25 Dresden Marathon (A):** ★
 
-## Warnings
+## Coaching notes
 
-- **Aug 28 → Sep 5 spacing = 8 days.** Violates the 14-day A/B hard-spacing rule. Both entries carry `warning:` fields. Coach's mitigation options for next iteration: (a) downgrade Birell 10k to a C-race and run it as controlled tempo, (b) drop Birell entirely, or (c) accept as a two-race "block" and back off training volume in the intervening week.
-- The Aug 29 Mizuno Neon Run 5k was removed to make room for the Aug 28 HM (adjacent days).
+- Plan matches the standard marathon build-up heuristic (10k-B 8–10 wks
+  out, HM-B 4–6 wks out, 3-wk taper).
+- Aug 30 was considered as a second C-race (Memoriál Jana Fryce 10k,
+  Neratovice) but rejected: only 6 days before Birell, would compromise
+  Birell's 4–5 day pre-race taper.
+- Borovská desítka has inconsistent source classification (road-10k vs
+  trail across sources — Havlíčkova Borová is Vysočina, so mixed rolling
+  terrain likely). Treated as road-10k here.
 
 ## Data-quality issues noted from the scrape
 
