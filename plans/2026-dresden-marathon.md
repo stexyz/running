@@ -56,6 +56,11 @@ training_phase_by_week: {}
 
 # Plan notes
 
+Iteration 5 — taper rule shortened from 3 weeks to 2 weeks for
+road-marathon (updated in `.claude/skills/race-plan/references/`).
+Taper window is now Oct 11 – Oct 24 (was Oct 4 – Oct 24). This opens
+Oct 4 as a viable hard-race slot 3 weeks out from Dresden.
+
 Iteration 4 — full replan against updated blackouts. Added a Jul 25
 C-race sharpener (Borovská desítka 10k) to bridge the 8-week Klínovec →
 Birell gap. Aug is a full dead zone: all four weekends are personal
@@ -68,7 +73,7 @@ blackouts (Aug 1–2 soft, 8–9, 15–16, 22–23, 28–29).
 - **Aug:** dead zone (family/travel commitments across every weekend).
 - **Sep 5 Birell 10k evening (B):** first hard race back, threshold calibration. RunCzech event, flat central Prague course.
 - **Sep 20 Plzeň HM (B):** main marathon-pace rehearsal, 5 weeks out.
-- **Oct 4–24:** 3-week A-race taper. No hard races.
+- **Oct 11–24:** 2-week A-race taper. No hard races.
 - **Oct 25 Dresden Marathon (A):** ★
 
 ## Coaching notes
@@ -91,7 +96,7 @@ blackouts (Aug 1–2 soft, 8–9, 15–16, 22–23, 28–29).
 
 ## Alternatives considered
 
-- **Bechovice 10k (Sep 27):** dropped in favor of Birell 10k (Sep 5). Reason: Sep 27 sits inside the 4-week pre-goal window and the only nearby HM (Oct 4 Hradec) would violate the 3-week A-race taper.
+- **Bechovice 10k (Sep 27):** dropped in favor of Birell 10k (Sep 5). Reason: Sep 27 sits inside the 4-week pre-goal window; noise-vs-signal argument. Under the current 2-week taper rule, Sep 27 or Oct 4 (e.g., Hradec HM) are now valid hard-race slots to consider in a future iteration.
 - **Jihlavský půlmaraton (Sep 6):** dropped — would clash back-to-back with Birell Sep 5.
 - **Sep 12 HM (Bezdězský / Okolo Kolovrat) as C long tempo:** rejected in favor of Aug 28 Praha 13. Would have violated 14-day spacing on *both* sides (Birell Sep 5 → Plzeň Sep 20).
 - **Aug 22 HM (Stadlern DE / Hrabovský Ostrava):** rejected — falls on user's Aug 22–23 blackout.

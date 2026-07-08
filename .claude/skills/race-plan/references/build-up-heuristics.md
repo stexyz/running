@@ -12,7 +12,7 @@ Weeks are measured backwards from goal race date.
 | 4–6       | road-half    | B        | Marathon pace / faster than MP rehearsal, kit test |
 | 2–3       | road-5k or road-10k | C  | Optional short tune-up, easy effort   |
 
-Taper: 3 weeks. No hard races in weeks 0–3 before goal.
+Taper: 2 weeks. No hard races in weeks 0–2 before goal.
 
 ## Goal: ultra
 

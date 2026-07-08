@@ -8,7 +8,7 @@ No hard races (A or B) inside the taper window before an A-race. C-races are all
 
 | Goal race type          | Taper window (weeks) |
 |-------------------------|---------------------|
-| road-marathon           | 3                   |
+| road-marathon           | 2                   |
 | ultra                   | 3                   |
 | road-half               | 2                   |
 | trail (long / mountain) | 2–3 (ask user)      |

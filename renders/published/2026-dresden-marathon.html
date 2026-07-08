@@ -45,13 +45,71 @@
       height: 60px;
       background: #eee;
       border-radius: 4px;
-      margin: 1rem 0;
+      margin: 2rem 0 1rem;
     }
+    .timeline-strip .now-indicator {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: #1a7f37;
+      transform: translateX(-50%);
+      z-index: 5;
+      pointer-events: none;
+    }
+    .timeline-strip .now-indicator::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid #1a7f37;
+    }
+    .timeline-strip .now-indicator::before {
+      content: 'now';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #1a7f37;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .timeline-strip .now-indicator.hidden { display: none; }
     .timeline-strip .taper {
       position: absolute;
       top: 0; bottom: 0;
       background: rgba(255, 200, 200, 0.5);
     }
+    .timeline-strip .week-tick {
+      position: absolute;
+      top: 4px; bottom: 4px;
+      width: 1px;
+      background: rgba(0, 0, 0, 0.08);
+      pointer-events: none;
+    }
+    .timeline-strip .week-tick.taper-boundary {
+      background: rgba(181, 58, 58, 0.35);
+    }
+    .timeline-labels {
+      position: relative;
+      height: 16px;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      color: #888;
+    }
+    .timeline-labels span {
+      position: absolute;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .timeline-labels span.taper { color: #b53a3a; }
+    .timeline-labels span.goal { color: #b53a3a; font-weight: 600; }
     .timeline-strip .marker {
       position: absolute;
       top: 8px;
@@ -139,18 +197,42 @@
   <header>
     <h1>Dresden Marathon</h1>
     <div class="meta">Sunday, 25 October 2026 · Dresden, DE · Road marathon</div>
-    <div class="countdown">110 days to go</div>
+    <div class="countdown" data-goal-date="2026-10-25">110 days to go</div>
   </header>
 
   <section>
     <h2>Timeline</h2>
-    <div class="timeline-strip">
-      <div class="taper" style="left: 80.2%; width: 19.8%"></div>
-      <div class="marker C" style="left: 0.0%" data-tooltip="Běhej lesy #4 Klínovec - ČSOB 23 km — Jul 11"></div>
-      <div class="marker C" style="left: 13.2%" data-tooltip="Borovská desítka 10k — Jul 25"></div>
-      <div class="marker B" style="left: 52.8%" data-tooltip="Birell Večerní Běh na 10 km Praha — Sep 05"></div>
-      <div class="marker B" style="left: 67.0%" data-tooltip="ŠKODA FIT půlmaraton 2026 — Sep 20"></div>
+    <div class="timeline-strip" data-plan-start="2026-07-11" data-plan-end="2026-10-25">
+      <div class="taper" style="left: 86.8%; width: 13.2%"></div>
+      <div class="now-indicator hidden"></div>
+      <div class="week-tick" style="left: 0.9%"></div>
+      <div class="week-tick" style="left: 7.5%"></div>
+      <div class="week-tick" style="left: 14.2%"></div>
+      <div class="week-tick" style="left: 20.8%"></div>
+      <div class="week-tick" style="left: 27.4%"></div>
+      <div class="week-tick" style="left: 34.0%"></div>
+      <div class="week-tick" style="left: 40.6%"></div>
+      <div class="week-tick" style="left: 47.2%"></div>
+      <div class="week-tick" style="left: 53.8%"></div>
+      <div class="week-tick" style="left: 60.4%"></div>
+      <div class="week-tick" style="left: 67.0%"></div>
+      <div class="week-tick" style="left: 73.6%"></div>
+      <div class="week-tick" style="left: 80.2%"></div>
+      <div class="week-tick taper-boundary" style="left: 86.8%"></div>
+      <div class="week-tick" style="left: 93.4%"></div>
+      <div class="marker C" style="left: 0.0%" data-tooltip="Běhej lesy #4 Klínovec - ČSOB 23 km — Jul 11 (15w)"></div>
+      <div class="marker C" style="left: 13.2%" data-tooltip="Borovská desítka 10k — Jul 25 (13w)"></div>
+      <div class="marker B" style="left: 52.8%" data-tooltip="Birell Večerní Běh na 10 km Praha — Sep 05 (7w)"></div>
+      <div class="marker B" style="left: 67.0%" data-tooltip="ŠKODA FIT půlmaraton 2026 — Sep 20 (5w)"></div>
       <div class="marker A" style="left: 100.0%" data-tooltip="Dresden Marathon — Oct 25"></div>
+    </div>
+    <div class="timeline-labels">
+      <span style="left: 0.0%">15w</span>
+      <span style="left: 13.2%">13w</span>
+      <span style="left: 52.8%">7w</span>
+      <span style="left: 67.0%">5w</span>
+      <span class="taper" style="left: 86.8%">taper · 2w</span>
+      <span class="goal" style="left: 100.0%">GOAL</span>
     </div>
   </section>
 
@@ -160,7 +242,7 @@
       <div class="month"><h3>July 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="race C" title="Běhej lesy #4 Klínovec - ČSOB 23 km">11</td><td>12</td></tr><tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr><tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td class="race C" title="Borovská desítka 10k">25</td><td>26</td></tr><tr><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td></tr></table></div>
       <div class="month"><h3>August 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr><tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr><tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr><tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr><tr><td>31</td><td></td><td></td><td></td><td></td><td></td><td></td></tr></table></div>
       <div class="month"><h3>September 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td class="race B" title="Birell Večerní Běh na 10 km Praha">5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr><tr><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td class="race B" title="ŠKODA FIT půlmaraton 2026">20</td></tr><tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td></tr><tr><td>28</td><td>29</td><td>30</td><td></td><td></td><td></td><td></td></tr></table></div>
-      <div class="month"><h3>October 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td class="taper">4</td></tr><tr><td class="taper">5</td><td class="taper">6</td><td class="taper">7</td><td class="taper">8</td><td class="taper">9</td><td class="taper">10</td><td class="taper">11</td></tr><tr><td class="taper">12</td><td class="taper">13</td><td class="taper">14</td><td class="taper">15</td><td class="taper">16</td><td class="taper">17</td><td class="taper">18</td></tr><tr><td class="taper">19</td><td class="taper">20</td><td class="taper">21</td><td class="taper">22</td><td class="taper">23</td><td class="taper">24</td><td class="race A" title="Dresden Marathon">25</td></tr><tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td></tr></table></div>
+      <div class="month"><h3>October 2026</h3><table><tr><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr><tr><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="taper">11</td></tr><tr><td class="taper">12</td><td class="taper">13</td><td class="taper">14</td><td class="taper">15</td><td class="taper">16</td><td class="taper">17</td><td class="taper">18</td></tr><tr><td class="taper">19</td><td class="taper">20</td><td class="taper">21</td><td class="taper">22</td><td class="taper">23</td><td class="taper">24</td><td class="race A" title="Dresden Marathon">25</td></tr><tr><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td></tr></table></div>
     </div>
   </section>
 
@@ -180,6 +262,42 @@
     </table>
   </section>
 
-  <footer>Generated by race-render on 2026-07-07</footer>
+  <footer>Generated by race-render on 2026-07-07 · "now" position recomputed on each page load</footer>
+
+  <script>
+  (function () {
+    var msPerDay = 86400000;
+    var parseISO = function (s) { return new Date(s + 'T12:00:00'); };
+    var strip = document.querySelector('.timeline-strip');
+    var indicator = strip.querySelector('.now-indicator');
+    var start = parseISO(strip.dataset.planStart);
+    var end = parseISO(strip.dataset.planEnd);
+    var now = new Date();
+    var total = (end - start) / msPerDay;
+    var elapsed = (now - start) / msPerDay;
+
+    // Show "now" at exact position when in range, clamped to strip edges when up
+    // to 30 days outside. Hide entirely if far outside.
+    var pct = (elapsed / total) * 100;
+    if (elapsed >= -30 && elapsed <= total + 30) {
+      var clamped = Math.max(0, Math.min(100, pct));
+      indicator.style.left = clamped.toFixed(2) + '%';
+      indicator.classList.remove('hidden');
+    }
+
+    var countdown = document.querySelector('.countdown');
+    var goal = parseISO(countdown.dataset.goalDate);
+    var daysToGoal = Math.round((goal - now) / msPerDay);
+    if (daysToGoal > 1) {
+      countdown.textContent = daysToGoal + ' days to go';
+    } else if (daysToGoal === 1) {
+      countdown.textContent = 'Tomorrow!';
+    } else if (daysToGoal === 0) {
+      countdown.textContent = 'Race day!';
+    } else {
+      countdown.textContent = 'Finished ' + Math.abs(daysToGoal) + ' days ago';
+    }
+  })();
+  </script>
 </body>
 </html>
