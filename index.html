@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Race plans</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      color: #222;
+      background: #fafafa;
+    }
+    header {
+      border-bottom: 2px solid #333;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+    header p { color: #666; margin: 0.5rem 0 0; }
+    .plans {
+      display: grid;
+      gap: 1rem;
+    }
+    a.card {
+      display: block;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.15s, border-color 0.15s;
+    }
+    a.card:hover {
+      border-color: #b53a3a;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    a.card h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+    a.card .meta {
+      color: #666;
+      margin-top: 0.35rem;
+      font-size: 0.95rem;
+    }
+    a.card .countdown {
+      display: inline-block;
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #b53a3a;
+    }
+    footer {
+      color: #999;
+      font-size: 0.85rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Race plans</h1>
+    <p>Personal race calendar and build-up plans, published for sharing.</p>
+  </header>
+
+  <div class="plans">
+    <a class="card" href="renders/published/2026-dresden-marathon.html">
+      <h2>Dresden Marathon 2026</h2>
+      <div class="meta">Sunday, 25 October 2026 · Dresden, DE · Road marathon</div>
+      <div class="countdown" data-goal-date="2026-10-25">countdown loading…</div>
+    </a>
+  </div>
+
+  <footer>Source: <a href="https://github.com/stexyz/running" style="color: #999;">github.com/stexyz/running</a></footer>
+
+  <script>
+  (function () {
+    var msPerDay = 86400000;
+    var parseISO = function (s) { return new Date(s + 'T12:00:00'); };
+    document.querySelectorAll('.countdown[data-goal-date]').forEach(function (el) {
+      var goal = parseISO(el.dataset.goalDate);
+      var days = Math.round((goal - new Date()) / msPerDay);
+      if (days > 1) el.textContent = days + ' days to go';
+      else if (days === 1) el.textContent = 'Tomorrow!';
+      else if (days === 0) el.textContent = 'Race day!';
+      else el.textContent = 'Finished ' + Math.abs(days) + ' days ago';
+    });
+  })();
+  </script>
+</body>
+</html>
